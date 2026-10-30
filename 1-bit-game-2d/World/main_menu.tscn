@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://ghsar8wsnix6"]
+
+[ext_resource type="Script" uid="uid://b07htf6dpdcpw" path="res://World/main_menu.gd" id="1_c5bab"]
+[ext_resource type="Texture2D" uid="uid://d2n8v3mrqvj23" path="res://assets/UI/frames-32-4.png" id="2_c5bab"]
+[ext_resource type="FontFile" uid="uid://d3ood4o5rkjvq" path="res://assets/PIXEAB__.TTF" id="2_i23yf"]
+[ext_resource type="FontFile" uid="uid://6cxlr2ph20pu" path="res://assets/PIXEARG_.TTF" id="2_l47jh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l47jh"]
+atlas = ExtResource("2_c5bab")
+region = Rect2(2, 326, 107, 35)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i23yf"]
+texture = SubResource("AtlasTexture_l47jh")
+expand_margin_left = 32.0
+expand_margin_top = 8.0
+expand_margin_right = 32.0
+expand_margin_bottom = 8.0
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_c5bab")
+
+[node name="TitleLabel" type="Label" parent="."]
+offset_left = 188.0
+offset_top = 99.0
+offset_right = 876.0
+offset_bottom = 187.0
+theme_override_fonts/font = ExtResource("2_i23yf")
+theme_override_font_sizes/font_size = 64
+text = "1-BIT GAME 2D"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 362.0
+offset_top = 259.0
+offset_right = 662.0
+offset_bottom = 509.0
+theme_override_constants/separation = 32
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l47jh")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_i23yf")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_i23yf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_i23yf")
+text = "START GAME"
+
+[node name="FullScreenButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l47jh")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_i23yf")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_i23yf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_i23yf")
+text = "FullScreen 
+"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_l47jh")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_i23yf")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_i23yf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_i23yf")
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/FullScreenButton" to="." method="_on_full_screen_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

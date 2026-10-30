@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://crv0xpx3fa2hm"]
+
+[ext_resource type="Texture2D" uid="uid://i5rumjs64tay" path="res://assets/Images/monochrome_tilemap_transparent.png" id="1_8pw3t"]
+[ext_resource type="Script" uid="uid://ddgl887fe8x4d" path="res://scripts/gems.gd" id="1_rtev3"]
+[ext_resource type="AudioStream" uid="uid://do88u16xnxaku" path="res://assets/sound/pickupCoin.wav" id="3_q122x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rtev3"]
+size = Vector2(11, 15)
+
+[node name="Gems" type="Area2D"]
+script = ExtResource("1_rtev3")
+point_value = 10
+pickup_sfx = ExtResource("3_q122x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8pw3t")
+region_enabled = true
+region_rect = Rect2(36, 83, 10, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_rtev3")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_q122x")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

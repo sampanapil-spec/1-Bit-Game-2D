@@ -1,0 +1,123 @@
+[gd_scene load_steps=14 format=3 uid="uid://hha1nphn0foa"]
+
+[ext_resource type="PackedScene" uid="uid://bc5sn1wlmiecy" path="res://World/level_select_button.tscn" id="1_mctk6"]
+[ext_resource type="Texture2D" uid="uid://d2n8v3mrqvj23" path="res://assets/UI/frames-32-4.png" id="2_hywoo"]
+[ext_resource type="Script" uid="uid://bcytcxawk5ncw" path="res://World/debug_reset_tool.gd" id="3_fd150"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l47jh"]
+atlas = ExtResource("2_hywoo")
+region = Rect2(2, 326, 107, 35)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fd150"]
+texture = SubResource("AtlasTexture_l47jh")
+expand_margin_left = 32.0
+expand_margin_top = 8.0
+expand_margin_right = 32.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b3wlw"]
+texture = SubResource("AtlasTexture_l47jh")
+expand_margin_left = 32.0
+expand_margin_top = 8.0
+expand_margin_right = 32.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gm7e0"]
+texture = SubResource("AtlasTexture_l47jh")
+expand_margin_left = 32.0
+expand_margin_top = 8.0
+expand_margin_right = 32.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sp88g"]
+texture = SubResource("AtlasTexture_l47jh")
+expand_margin_left = 32.0
+expand_margin_top = 8.0
+expand_margin_right = 32.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0i41l"]
+texture = SubResource("AtlasTexture_l47jh")
+expand_margin_left = 32.0
+expand_margin_top = 8.0
+expand_margin_right = 32.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lo8g7"]
+texture = SubResource("AtlasTexture_l47jh")
+expand_margin_left = 32.0
+expand_margin_top = 8.0
+expand_margin_right = 32.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o2je1"]
+texture = SubResource("AtlasTexture_l47jh")
+expand_margin_left = 32.0
+expand_margin_top = 8.0
+expand_margin_right = 32.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p3r6u"]
+texture = SubResource("AtlasTexture_l47jh")
+expand_margin_left = 32.0
+expand_margin_top = 8.0
+expand_margin_right = 32.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ngb5w"]
+texture = SubResource("AtlasTexture_l47jh")
+expand_margin_left = 32.0
+expand_margin_top = 8.0
+expand_margin_right = 32.0
+expand_margin_bottom = 8.0
+
+[node name="LevelSelect" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 39.0
+offset_top = 8.0
+offset_right = 1109.0
+offset_bottom = 183.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 110
+text = "LEVEL SELECTION"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_top = 138.0
+offset_right = 1152.0
+offset_bottom = 638.0
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 100
+theme_override_constants/v_separation = 12
+columns = 3
+
+[node name="LevelSelectButton" parent="CenterContainer/GridContainer" instance=ExtResource("1_mctk6")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_fd150")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_b3wlw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_gm7e0")
+text = "1"
+
+[node name="LevelSelectButton2" parent="CenterContainer/GridContainer" instance=ExtResource("1_mctk6")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_sp88g")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0i41l")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lo8g7")
+text = "2"
+level_id = "2"
+
+[node name="LevelSelectButton3" parent="CenterContainer/GridContainer" instance=ExtResource("1_mctk6")]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_o2je1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_p3r6u")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ngb5w")
+text = "3"
+level_id = "3"
+
+[node name="DebhgResetTool" type="Node2D" parent="."]
+script = ExtResource("3_fd150")

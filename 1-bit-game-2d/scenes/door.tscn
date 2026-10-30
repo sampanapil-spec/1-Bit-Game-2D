@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cumkwl4nmqew4"]
+
+[ext_resource type="Texture2D" uid="uid://i5rumjs64tay" path="res://assets/Images/monochrome_tilemap_transparent.png" id="1_hpvv5"]
+[ext_resource type="Script" uid="uid://ftts51vswsyl" path="res://scripts/door.gd" id="1_uvdjg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_71loh"]
+size = Vector2(14, 16)
+
+[node name="Door" type="Area2D"]
+collision_mask = 3
+script = ExtResource("1_uvdjg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_hpvv5")
+region_enabled = true
+region_rect = Rect2(323, 34, 16, 17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_71loh")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

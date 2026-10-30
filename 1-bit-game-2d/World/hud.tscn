@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7scj2ojpub1b"]
+
+[ext_resource type="Script" uid="uid://cvj1jyvd7blqw" path="res://World/hud.gd" id="1_bo4x5"]
+[ext_resource type="FontFile" uid="uid://d3ood4o5rkjvq" path="res://assets/PIXEAB__.TTF" id="2_e7my0"]
+
+[node name="HUD" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_bo4x5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_e7my0")
+text = "SCORE: 0"
+
+[node name="JumpsLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_e7my0")
+text = "JUMPS: 0/10"

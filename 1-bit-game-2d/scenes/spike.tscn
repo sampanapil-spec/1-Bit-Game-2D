@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://d32ggjnqsxsry"]
+
+[ext_resource type="Script" uid="uid://bx3g3cw8lay6t" path="res://scripts/spike.gd" id="1_7a7y0"]
+[ext_resource type="Texture2D" uid="uid://i5rumjs64tay" path="res://assets/Images/monochrome_tilemap_transparent.png" id="2_d2mqm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cx2lw"]
+size = Vector2(16, 8)
+
+[node name="Spike" type="Area2D"]
+script = ExtResource("1_7a7y0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_d2mqm")
+region_enabled = true
+region_rect = Rect2(34, 111, 16, 7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cx2lw")
